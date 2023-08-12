@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Web App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .card-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .card-body {
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>My To-Do List</h1>
+    <div id="data-container"></div>
+  </div>
+  <script>
+    async function fetchData() {
+      try {
+        const response = await fetch('/api/data'); 
+        const data = await response.json();
+        
+        const dataContainer = document.getElementById('data-container');
+        
+        data.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          
+          const title = document.createElement('h2');
+          title.className = 'card-title';
+          title.textContent = item.title; 
+          
+          const body = document.createElement('p');
+          body.className = 'card-body';
+          body.textContent = item.body; 
+          
+          card.appendChild(title);
+          card.appendChild(body);
+          
+          dataContainer.appendChild(card);
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    
+    fetchData();
+  </script>
+</body>
+</html>
