@@ -20,6 +20,8 @@ Clone the repository
 git clone https://github.com/imalisusan/dawit-interview
 ```
 
+Navigate to the project directory: `cd laravel`
+
 ## Getting Started 🚀
 
 ```php
