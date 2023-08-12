@@ -57,17 +57,17 @@ php artisan serve
 This API uses Laravel Sanctum for authentication. To authenticate, you need to register and log in as a user. Once logged in, you will receive an authentication token that you should include in the headers of your API requests.
 
 ## Usage
-- POST /api/auth/register - Register and log in to obtain an access token.
-- POST /api/auth/login - Log in to obtain an access token.
+- POST `/api/auth/register` - Register and log in to obtain an access token.
+- POST `/api/auth/login` - Log in to obtain an access token.
 - Use the obtained access token in the headers(Bearer Token) of your API requests.
 
 ## API Endpoints
 The API exposes the following endpoints:
-- GET /api/tasks - View the seeded tasks
-- POST /api/tasks - Create a new task
-- GET /api/tasks/{id} - Retrieve a specific task by ID
-- PUT /api/tasks/{id} - Update an existing task
-- DELETE /api/tasks/{id} - Delete a task
+- GET `/api/tasks` - View the seeded tasks
+- POST `/api/tasks` - Create a new task
+- GET `/api/tasks/{id}` - Retrieve a specific task by ID
+- PUT `/api/tasks/{id}` - Update an existing task
+- DELETE `/api/tasks/{id}` - Delete a task
 
 Please ensure that you include appropriate headers for authentication (Bearer token) when making requests to protected endpoints.
 
